@@ -1,6 +1,6 @@
 {
   "name": "flydrive-google-drive",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "node-flydrive driver for Google Drive",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,10 @@
     "url": "https://github.com/molobala/flydrive-google-drive/issues"
   },
   "homepage": "https://github.com/molobala/flydrive-google-drive#readme",
+  "dependencies": {
+    "request": "^2.83.0",
+    "google-auth-library": "^0.12.0"
+  },
   "devDependencies": {
     "async": "^2.6.0",
     "coveralls": "^3.0.0",
