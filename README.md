@@ -6,7 +6,7 @@ This package depends on google-auth-library, you can get it by running
 The ``google-auth-library`` permits using OAuth for google drive authentication, its main role is to get a new token from refresh token if any
 ## Installation
 You can get this package by running just  
-`npm run --save flydrive-google-drive`  
+`npm i --save flydrive-google-drive`  
 ## Usage
 ### With flydrive library
 You need to install  @slynova/flydrive that is a fluent nodejs storage library  
