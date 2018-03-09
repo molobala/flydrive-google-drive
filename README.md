@@ -1,5 +1,5 @@
 # flydrive-google-drive
-This is GoogleDrive access driver for [node-flydrive]() library
+This is GoogleDrive access driver for [node-flydrive](https://github.com/Slynova-Org/node-flydrive) library
 ## Dependencies
 This package depends on google-auth-library, you can get it by running  
 `npm i --save google-auth-library`  
