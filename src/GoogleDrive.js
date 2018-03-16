@@ -48,7 +48,7 @@ class GoogleDrive {
         params.pageToken = pageToken
         this.drive(token).files().list(params, (err, response, body) => {
           if (err) return cb(err)
-          if (response.statusCode !== 200) return cb(GoogleDrive.__onError(response.statusMessage, response.statusCode))
+          if (response.statusCode !== 200) return cb(GoogleDrive.__onError(body, response.statusCode))
           const rep = JSON.parse(body)
           const files = rep.files
           if (!files) reject(new Error('an error occured'))
@@ -245,7 +245,7 @@ class GoogleDrive {
       }
       this.drive(await this.__token()).files(parentId).create(meta, clonedParams, (err, response, body) => {
         if (err) return reject(err)
-        if (response.statusCode !== 200) return reject(GoogleDrive.__onError(response.statusMessage, response.statusCode))
+        if (response.statusCode !== 200) return reject(GoogleDrive.__onError(body, response.statusCode))
         const rep = JSON.parse(body)
         resolve(rep)
       })
@@ -347,7 +347,7 @@ class GoogleDrive {
       this.drive(await this.__token()).files(srcId).copy({resource, media: meta.media}, clonedParams, (err, response, body) => {
         if (err) return reject(err)
         if (response.statusCode !== 200) {
-          return reject(GoogleDrive.__onError(response.statusMessage, response.statusCode))
+          return reject(GoogleDrive.__onError(body, response.statusCode))
         }
         //
         const rep = JSON.parse(body)
@@ -421,7 +421,7 @@ class GoogleDrive {
       this.drive(await this.__token()).files(srcId).update({resource}, clonedParams, (err, response, body) => {
         if (err) return reject(err)
         if (response.statusCode !== 200) {
-          return reject(GoogleDrive.__onError(response.statusMessage, response.statusCode))
+          return reject(GoogleDrive.__onError(body, response.statusCode))
         }
         const rep = JSON.parse(body)
         resolve(rep)
@@ -474,7 +474,7 @@ class GoogleDrive {
       // encoding = encoding || null
       let req = this.drive(token).files(fileId).get(params, encoding, (err, resp, body) => {
         if (resp.statusCode !== 200) {
-          return reject(GoogleDrive.__onError(resp.statusMessage, resp.statusCode))
+          return reject(GoogleDrive.__onError(body, resp.statusCode))
         }
         if (err) return reject(err)
         return resolve(body)
