@@ -36,7 +36,7 @@ class GoogleDrive {
       let pageToken = null
       if (!parentId) parentId = 'root'
       const params = {
-        q: `'${parentId}' in parents and name = '${fileName}'`,
+        q: `'${parentId}' in parents and name = '${fileName.replace(/'/g,"\\'")}'`,
         fields: 'nextPageToken, incompleteSearch, files(id, name)',
         spaces: 'drive',
         pageToken: pageToken,

@@ -26,6 +26,11 @@ const token = {
   'refresh_token': config.refresh_token
 }
 test.group('GoogleDrive Driver', () => {
+  test('resolve id with quote character', async(assert)=>{
+    const driveDriver = new GoogleDriver(config)
+    const exists = await driveDriver.with(token).exists("dossier d\'analyse et conception");
+    assert.isNotNull(exists)
+  });
   test('return null when file doesn\'t exists', async (assert) => {
     const driveDriver = new GoogleDriver(config)
     const exists = await driveDriver.with(token).exists('some-file.jpg')
