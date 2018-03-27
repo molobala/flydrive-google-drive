@@ -1,6 +1,6 @@
 {
   "name": "flydrive-google-drive",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "node-flydrive driver for Google Drive",
   "main": "index.js",
   "scripts": {
